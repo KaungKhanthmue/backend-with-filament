@@ -6,16 +6,32 @@
 
         <div class="h-screen w-full flex flex-col">
             <div class="w-[1900px]  flex justify-center  ">
-                <div class="grid grid-cols-5 gap-3 w-[80%] py-10">
-                    <div class="h-[350px] rounded-lg bg-gray-200 relative bg-center bg-cover" style="background-image: url('https://scontent.fsub1-1.fna.fbcdn.net/v/t1.0-9/37921553_1447009505400641_8037753745087397888_n.jpg?_nc_cat=102&_nc_sid=09cbfe&_nc_oc=AQnDTnRBxV3QgnhKOtk9AiziIOXw0K68iIUQfdK_rlUSFgs8fkvnQ6FjP6UBEkA6Zd8&_nc_ht=scontent.fsub1-1.fna&oh=728962e2c233fec37154419ef79c3998&oe=5EFA545A')">
-                        <div class="absolute top-0 bottom-0 w-full h-full bg-black bg-opacity-25 "></div>
+                <div class="flex gap-3 w-[1520px] py-10  h-[400px] ">
+                    
+                    <div class="h-[350px] w-[300px] bg-white rounded-md  relative  " >
+                       <div class="">
+                       <div class="absolute top-0 bottom-0 w-full h-full  "></div>
                         <img class=" rounded-full absolute w-10 h-10 border-solid border-4 border-blue-500 my-3 mx-3" src="https://imgs.search.brave.com/mvfoPoPUoRk0ZMyKGsbxyZ8OLvQQqArJlcYMTfK1pOg/rs:fit:500:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9iL2I5LzIw/MjNfRmFjZWJvb2tf/aWNvbi5zdmcvMjIw/cHgtMjAyM19GYWNl/Ym9va19pY29uLnN2/Zy5wbmc" alt="">
-
+                       </div>
+                        <div class="w-full h-[60%] bg-gray-500 "></div>
+                        <div class="w-full h-[40%]  border-t-4  border-white rounded-md">
+                            <div class="w-[75px] h-[75px] rounded-full z-20 absolute p-1 top-[50%] left-[38%] bg-white">
+                                <div class="w-[66px] h-[65px] rounded-full bg-blue-400"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="h-[350px] mx-1 rounded-lg bg-gray-300"></div>
-                    <div class="h-[350px] rounded-lg bg-gray-400"></div>
-                    <div class="h-[350px] rounded-lg bg-gray-500"></div>
-                    <div class="h-[350px] rounded-lg bg-gray-500"></div>
+
+                   
+                    <div class="h-[350px] w-[300px] mx-1 rounded-lg bg-gray-300"></div>
+                    <div class="h-[350px] w-[300px] rounded-lg bg-gray-400"></div>
+                    <div class="h-[350px] w-[300px] rounded-lg bg-gray-500"></div>
+                    <div class="h-[350px] w-[300px] rounded-lg bg-gray-500"></div>
+                    <div class="h-[350px] w-[300px] rounded-lg bg-gray-500"></div>
+                    <div class="h-[350px] w-[300px] rounded-lg bg-gray-400"></div>
+                    <div class="h-[350px] w-[300px] rounded-lg bg-gray-500"></div>
+                    <div class="h-[350px] w-[300px] rounded-lg bg-gray-500"></div>
+                    <div class="h-[350px] w-[300px] rounded-lg bg-gray-500"></div>
+                    
                 </div>
 
             </div>
