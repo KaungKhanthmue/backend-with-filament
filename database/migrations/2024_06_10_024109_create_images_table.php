@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->text('description');
-            $table->foreignUlid('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->string('name');
+            $table->string('path');
+            $table->string('type');
+            $table->ulidMorphs('imageable');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('images');
     }
 };
