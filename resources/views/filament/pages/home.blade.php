@@ -1,7 +1,7 @@
 <x-filament-panels::page>
-    <div class="w-[2000px]  bg-gray-700">
+    <div class="w-[1700px]  bg-gray-700 shadow-lg">
 
-        <div class="w-full h-[50px]  flex justify-end pr-[300px] py-6">
+        <div class="w-full h-[50px]  flex justify-end pr-[50px] py-6">
             <div class="w-[200px] h-[40px] rounded-lg bg-blue-400 px-16 py-2 text-bold" wire:click="modelBoxOnOff">
                 add Post
             </div>
@@ -10,19 +10,19 @@
         <div class="flex justify-center">
         <div class="relative w-[85%] py-10 h-[400px] overflow-hidden">
             <div id="carousel" class="flex w-full transition-transform duration-300 gap-3">
-                <div class="carousel-item h-[350px] bg-white rounded-2xl relative ml-2" style="flex: 0 0 auto;width: 280px;" >
+                <div class="carousel-item h-[350px] bg-gray-600 rounded-2xl relative ml-2" style="flex: 0 0 auto;width: 280px;" >
                     <div class="absolute top-0 bottom-0 w-full h-full"></div>
                     <img class="rounded-full absolute w-10 h-10 border-solid border-4 border-blue-500 my-3 mx-3" src="https://imgs.search.brave.com/mvfoPoPUoRk0ZMyKGsbxyZ8OLvQQqArJlcYMTfK1pOg/rs:fit:500:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9iL2I5LzIw/MjNfRmFjZWJvb2tf/aWNvbi5zdmcvMjIw/cHgtMjAyM19GYWNl/Ym9va19pY29uLnN2/Zy5wbmc" alt="">
                     <div class="w-full h-[60%] bg-gray-500"></div>
-                    <div class="w-full h-[40%] border-t-4 border-white rounded-md" wire:click="newFellOnOff">
-                        <div class="w-[75px] h-[75px] rounded-full z-20 absolute p-1 top-[50%] left-[35%] bg-white">
+                    <div class="w-full h-[40%] border-t-4 border-gray-600 rounded-md" wire:click="newFellOnOff">
+                        <div class="w-[75px] h-[75px] rounded-full z-20 absolute p-1 top-[50%] left-[35%] bg-gray-600">
                             <div class="w-[66px] h-[65px] rounded-full bg-blue-400"></div>
                         </div>
                     </div>
                 </div>
 
                 @foreach($this->newFeels as $feel)
-                <div class="carousel-item h-[350px] rounded-lg bg-gray-300 p-1" style=" flex: 0 0 auto;width: 280px; ">
+                <div class="carousel-item h-[350px] rounded-lg bg-gray-300 p-1" style=" flex: 0 0 auto;width: 240px; ">
                     <img src="{{ url('storage', $feel->image->path) }}" alt="" class="w-full h-full object-cover rounded-lg">
                     <div class=" h-[15%] absolute top- w-[280px] top-[80%] py-1 flex px-2 ">
                         <div class="w-[50px] h-[50px] rounded-full bg-blue-500">
@@ -33,15 +33,15 @@
                 </div>
                 @endforeach
             </div>
-            <button id="prev" class="absolute z-40 left-0 outline-4 outline-blue-500 top-1/2 transform -translate-y-1/2 p-2 bg-white  rounded-full"><</button>
-            <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 p-2  rounded-full bg-white">></button>
+            <button id="prev" class="absolute z-40 left-0 outline-4 outline-blue-500 top-1/2 transform -translate-y-1/2 p-2 bg-white text-black rounded-full"><</button>
+            <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 p-2  rounded-full bg-white text-black">></button>
         </div>
     </div>
 
 
             <div class="w-full mx-auto flex container mx-auto ">
                 <div class=" flex justify-center ">
-                    <div class="w-[80%]  bg-gray-700">
+                    <div class="w-[84%]  bg-gray-100 rounded-lg">
                         <div class="bg-white w-full h-32 rounded-md shadow-md">
                             <div class="w-full h-16 flex items-center flex justify-between px-5">
                                 <img class=" rounded-full w-10 h-10 mr-3" src="https://imgs.search.brave.com/mvfoPoPUoRk0ZMyKGsbxyZ8OLvQQqArJlcYMTfK1pOg/rs:fit:500:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9iL2I5LzIw/MjNfRmFjZWJvb2tf/aWNvbi5zdmcvMjIw/cHgtMjAyM19GYWNl/Ym9va19pY29uLnN2/Zy5wbmc" alt="">
@@ -141,7 +141,7 @@
                                         <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
                                         <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                                     </svg>
-                                    <span class="font-semibold text-lg text-gray-600">bagikan</span></button>
+                                    <span class="font-semibold text-lg text-gray-600">Share</span></button>
                             </div>
                             <hr>
                         </div>
@@ -152,19 +152,21 @@
 
         </div>
         @if($modelBox == 1 )
-        <div class="z-20 absolute w-full h-[900px]  top-[0%]  bg-opacity-75 rounded-2xl p-6 flex justify-center pt-[10%]" wire:click="off">
-            <div class="w-[800px] h-[400px] bg-gray-700 bg-opacity-50 p-4 rounded-2xl">
+        <div class="z-10 absolute w-full h-[900px]  top-[0%]  rounded-2xl p-6 flex justify-center pt-[10%]" wire:click="off">
+            </div>
+
+            <div class="w-[800px] h-[400px] bg-gray-700 bg-opacity-50  p-4 rounded-2xl z-20 absolute   top-[20%] left-[30%]  bg-opacity-75">
             @livewire('post.create-post',[
             'modelBox' => $modelBox])
-            </div>
         </div>
         @endif
         @if($newFeel == 1)
-        <div class="z-20 absolute w-full h-[900px]  top-[0%]  bg-opacity-75 rounded-2xl p-6 flex justify-center pt-[10%]" wire:click="off">
-            <div class="w-[800px] h-[400px] bg-gray-700 bg-opacity-50 p-4 rounded-2xl">
+        <div class="z-10 absolute w-full h-[900px]  top-[0%]  rounded-2xl p-6 flex justify-center pt-[10%]" wire:click="off">
+            </div>
+
+            <div class="w-[800px] h-[400px] bg-gray-700 bg-opacity-50  p-4 rounded-2xl z-20 absolute   top-[20%] left-[30%]  bg-opacity-75">
             @livewire('new-fell.create-new-fell',[
             'modelBox' => $modelBox])
-            </div>
         </div>
         @endif
     </div>
