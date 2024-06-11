@@ -1,7 +1,7 @@
 <x-filament-panels::page>
     <div class="w-[1700px]  bg-gray-700 shadow-lg">
 
-        <div class="w-full h-[50px]  flex justify-end pr-[50px] py-6">
+        <div class="w-full h-[50px]  flex justify-end pr-[200px] py-6">
             <div class="w-[200px] h-[40px] rounded-lg bg-blue-400 px-16 py-2 text-bold" wire:click="modelBoxOnOff">
                 add Post
             </div>

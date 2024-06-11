@@ -6,9 +6,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -55,6 +57,24 @@ class User extends Authenticatable
      public function posts(): HasMany
      {
          return $this->hasMany(Post::class);
+     }
+
+     public function friends(): BelongsToMany
+     {
+         return $this->belongsToMany(User::class, 'friend_lists', 'user_id', 'your_friend_id')
+                     ->withTimestamps();
+     }
+     public function friendRequest(): BelongsToMany
+     {
+         return $this->belongsToMany(User::class, 'friend_lists', 'your_friend_id','user_id')
+                     ->withTimestamps();
+     }
+
+     public function addFriend($friendId)
+     {
+         $ulid = (string) Str::ulid();
+ 
+         $this->friends()->attach($friendId, ['id' => $ulid]);
      }
      
 }
