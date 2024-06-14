@@ -76,7 +76,7 @@ class Friend extends Page
        ->size(ActionSize::Large)
        ->model(User::class)
        ->action(function($arguments) {
-        $check= FriendList::where('user_id',auth()->user()->id)->where('your_friend_id',$arguments['addUserId'])->first();
+        $check= FriendList::where('user_id',auth()->user()->id)->where('your_friend_id',$arguments['addUserId'])->first();  
         if(!$check)
         {
             FriendList::create([
