@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\FriendList;
+use App\Models\Post;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+        $usersList = User::factory(10)->create();
         FriendList::factory(30)->create();
 
        $admin =  User::factory()->create([
@@ -30,5 +31,22 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        foreach($users as $user)
+        {
+            $post = Post::create([
+                'description' => 'test',
+                'user_id' => $user->id,
+            ]);
+    
+ 
+            $post->image()->create([
+                'name' => fake()->word, 
+                'path' => fake()->imageUrl(640, 480, 'posts', true, 'post fixtures'),
+                'type' => 'post_image',
+            ]);
+        }
+
+
+        
     }
 }
