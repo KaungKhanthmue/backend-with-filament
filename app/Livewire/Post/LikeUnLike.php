@@ -10,7 +10,7 @@ use Filament\Forms\Form;
 use Livewire\Component;
 use Illuminate\Contracts\View\View;
 
-class EditPost.php extends Component implements HasForms
+class LikeUnLike extends Component implements HasForms
 {
     use InteractsWithForms;
 
@@ -42,6 +42,6 @@ class EditPost.php extends Component implements HasForms
 
     public function render(): View
     {
-        return view('livewire.post.edit-post.php');
+        return view('livewire.post.like-un-like');
     }
 }

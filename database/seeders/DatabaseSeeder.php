@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
         ]);
+        $one =  User::factory()->create([
+            'name' => 'one',
+            'email' => 'one@gmail.com',
+        ]);
         $users = User::inRandomOrder()->take(10)->get();
         foreach($users as $user)
         {
@@ -38,12 +42,21 @@ class DatabaseSeeder extends Seeder
                 'user_id' => $user->id,
             ]);
     
- 
-            $post->image()->create([
-                'name' => fake()->word, 
-                'path' => fake()->imageUrl(640, 480, 'posts', true, 'post fixtures'),
-                'type' => 'post_image',
-            ]);
+            $images =[
+                'post/cv2.jpg',
+                'post/cv3.jpg',
+                'post/cv4.jpg',
+                'post/cv5.jpg',
+            ];
+            foreach($images as $image)
+            {
+                $post->image()->create([
+                    'name' => fake()->word, 
+                    'path' => $image,
+                    'type' => 'post_image',
+                ]);
+            }
+
         }
 
 

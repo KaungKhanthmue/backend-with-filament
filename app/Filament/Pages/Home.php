@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Carbon\Carbon;
 use Filament\Actions\CreateAction;
@@ -20,29 +21,14 @@ class Home extends Page
 
     public $modelBox = 0;
     public $newFeel = 0;
-    protected function addPost()
-    {
-        return 
-            EditAction::make()
-                ->label('New User')
-                ->name('add')
-                ->model(Post::class)
-                ->record(function ($argument){
-                    return Post::find($argument['postId']);
-                })
-                ->form([
-                    Forms\Components\TextInput::make('description')
-                        ->required()
-                        ->maxLength(255),
-                ]);
-    }
 
 
     #[Computed]
 
     public function getPosts()
     {
-        return \App\Models\Post::with('user')->get();
+       $post =  \App\Models\Post::with('user','image')->get();
+       return PostResource::collection($post);
     }
     #[Computed]
     public function newFeels()

@@ -11,10 +11,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable,HasUlids;
+    use HasApiTokens,HasFactory, Notifiable,HasUlids;
 
     /**
      * The attributes that are mass assignable.
@@ -77,6 +78,11 @@ class User extends Authenticatable
          $ulid = (string) Str::ulid();
  
          $this->friends()->attach($friendId, ['id' => $ulid]);
+     }
+
+     public function likeUser(): BelongsToMany
+     {
+         return $this->belongsToMany(User::class,'like_lists')->withTimestamps();;
      }
      
 }

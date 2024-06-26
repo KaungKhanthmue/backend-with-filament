@@ -10,7 +10,9 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::query()->get();
+        $posts = Post::query()->with('user','image')->get();
         return PostResource::collection($posts);
     }
+
+    
 }
