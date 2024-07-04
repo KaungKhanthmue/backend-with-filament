@@ -18,7 +18,7 @@ class PostResource extends JsonResource
         return [
             'id' => $this->id,
             'description' => $this->description, 
-            'user' => $this->user->name,
+            'user' => new UserAllResource($this->user),
             'time' => $this->created_at->diffForHumans(),
             'image' => ImageResource::collection($this->image),
         ];

@@ -15,11 +15,14 @@ class PostLikeController extends Controller
 
     public function show($postId)
     {
-
+        $post = Post::findOrFail($postId);
+        $likedUser = $post->likePost()->get();
+        dd($likedUser);
     }
 
     public function likeUnLike($postId)
     {
+        
         $post = Post::findOrFail($postId);
         $user= User::find(auth()->user()->id);
         $hasLiked = $user->likeUser()->wherePivot('post_id', $post->id)->exists();

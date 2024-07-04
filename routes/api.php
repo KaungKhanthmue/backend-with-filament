@@ -19,8 +19,8 @@ Route::post('register',[AuthController::class,'register']);
 Route::middleware('auth:sanctum')->group(function(){
 
 
-    Route::get('post-list',[PostController::class,'index']);
-    Route::post('like-unlike/{postId}',[PostLikeController::class,'likeUnLike']);
+
+
     
 });
 Route::get('friend_add/{yourFriendId}',[FriendController::class,'friend_add']);
@@ -28,3 +28,6 @@ Route::get('user-friend/{userId}',[FriendController::class,'user_friend']);
 
 Route::get('user-list',[UserController::class,'index']);
 Route::post('user-create',[UserController::class,'create']);
+Route::get('post-list',[PostController::class,'index']);
+Route::get('post-list-detail/{postId}',[PostLikeController::class,'show']);
+Route::post('like-unlike/{postId}',[PostLikeController::class,'likeUnLike']);
