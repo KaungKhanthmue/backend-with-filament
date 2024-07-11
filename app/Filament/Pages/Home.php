@@ -27,7 +27,7 @@ class Home extends Page
 
     public function getPosts()
     {
-       $post =  \App\Models\Post::with('user','image')->get();
+       $post =  \App\Models\Post::with(['user','image','likePost','commentPost'])->get();
        return PostResource::collection($post);
     }
     #[Computed]

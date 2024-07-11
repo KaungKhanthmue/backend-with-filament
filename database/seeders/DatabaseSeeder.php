@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\CommentList;
 use App\Models\FriendList;
+use App\Models\LikeList;
 use App\Models\Post;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -58,6 +60,8 @@ class DatabaseSeeder extends Seeder
             }
 
         }
+        LikeList::factory(30)->create();
+        CommentList::factory(30)->create();
 
 
         

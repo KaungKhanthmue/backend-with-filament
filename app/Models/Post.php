@@ -35,6 +35,11 @@ class Post extends BaseModel
         return $this->BelongsToMany(Post::class,'like_lists')->withTimestamps();
     }
 
+    public function commentPost(): BelongsToMany
+    {
+        return $this->BelongsToMany(Post::class,'comment_lists')->withTimestamps();
+    }
+
     public function like($userId)
     {
         $ulid = (string) str::ulid();
