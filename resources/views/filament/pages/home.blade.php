@@ -28,11 +28,11 @@
                         @foreach($this->newFeels as $feel)
                         <div class="carousel-item h-[350px] rounded-lg bg-gray-300 p-1 w-[240px]"
                             style=" flex: 0 0 auto;">
-                            <img src="{{ url('storage', $feel->image->path) }}" alt=""
+                            <img src="{{ url('storage', $feel->image?->path) }}" alt=""
                                 class="w-full h-full object-cover rounded-lg">
                             <div class=" h-[15%] absolute top- w-[280px] top-[80%] py-1 flex px-2 ">
                                 <div class="w-[50px] h-[50px] rounded-full bg-blue-500">
-                                    <img src="{{url('storage',$feel->image->path)}}"
+                                    <img src="{{url('storage',$feel?->image?->path)}}"
                                         class="border border-white w-full h-full rounded-full" alt="">
                                 </div>
                                 <div class="w-[230px] p-2 text-bold font-semibold text-white ">{{$feel->user->name}}
@@ -159,8 +159,8 @@
                             </div>
                             <hr>
                             <div class="flex justify-between w-full h-[60px] bg-gray-100 p-2 px-8 rounded-md">
-                                <div class="bg-blue-500 w-[20%] flex justify-center font-bold text-xl py-2 rounded-xl">
-                                    like
+                                <div class="bg-blue-500 w-[20%] flex justify-center font-bold text-xl  rounded-xl">
+                                    {{($this->like)(['postId'=>$post->id])}}
                                 </div>
                                 <div class="w-[20%]"></div>
                                 <div class="bg-blue-500 w-[20%] flex justify-center font-bold text-xl py-2 rounded-xl">

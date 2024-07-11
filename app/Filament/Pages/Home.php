@@ -5,12 +5,11 @@ namespace App\Filament\Pages;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Carbon\Carbon;
-use Filament\Actions\CreateAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
+use Filament\Actions\Action;
 use Filament\Pages\Page;
 use Livewire\Attributes\Computed;
 use Filament\Forms;
+use Filament\Support\Enums\ActionSize;
 
 class Home extends Page
 {
@@ -22,7 +21,21 @@ class Home extends Page
     public $modelBox = 0;
     public $newFeel = 0;
 
+    public function like()
+    {
+       return Action::make()
+       ->name('like')
+       ->labeledFrom('md')
+       ->color('white')
+       ->size(ActionSize::ExtraLarge)
+       ->label('like')
+       ->model(Post::class)
+       ->action(function($arguments) {
+        $post = Post::findOrFail($arguments['postId']);
+        $post->like(auth()->user()->id);
 
+    });
+    }
     #[Computed]
 
     public function getPosts()
