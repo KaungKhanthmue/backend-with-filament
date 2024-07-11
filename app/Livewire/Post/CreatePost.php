@@ -15,11 +15,11 @@ class CreatePost extends Component implements HasForms
     use InteractsWithForms;
 
     public ?array $data = [];
-    public  $modelBox  = null;
+    public $modelBox = null;
+
     public function mount(): void
     {
         $this->form->fill();
-        
     }
 
     public function form(Form $form): Form
@@ -27,29 +27,32 @@ class CreatePost extends Component implements HasForms
         return $form
             ->schema([
                 Forms\Components\TextInput::make('description')
-                ->required(),
-                Forms\Components\FileUpload::make('image')
-                ->disk('public')
-                ->directory('post/'.auth()->user()->id.'/')
-                ->visibility('public'),
+                    ->required(),
+                Forms\Components\FileUpload::make('images')
+                    ->disk('public')
+                    ->multiple(true)
+                    ->directory('post/'.auth()->user()->id.'/')
+                    ->visibility('public'),
             ])
             ->statePath('data')
             ->model(Post::class);
     }
 
     public function create()
-    {   
-        
+    {
         $data = $this->form->getState();
-        $data= array_merge($data,['user_id' => auth()->user()->id]);
-        
+        $data = array_merge($data, ['user_id' => auth()->user()->id]);
+
         $record = Post::create($data);
-        if($data['image'] != null){
-            $record->image()->create([
-                'path' => $data['image'],
-                'type' => 'image',
-                'name' => 'hello',
-            ]);
+        
+        if (!empty($data['images'])) {
+            foreach ($data['images'] as $image) {
+                $record->image()->create([
+                    'path' => $image,
+                    'type' => 'image',
+                    'name' => 'hello',
+                ]);
+            }
         }
 
         $this->form->model($record)->saveRelationships();
@@ -60,6 +63,4 @@ class CreatePost extends Component implements HasForms
     {
         return view('livewire.post.create-post');
     }
-
-
 }

@@ -1,11 +1,6 @@
 <x-filament-panels::page>
     <div class=" bg-gray-700 shadow-lg">
 
-        <div class="w-full h-[50px]  flex justify-end pr-[9%] py-6">
-            <div class="w-[200px]  h-[40px] rounded-lg bg-blue-400 px-16 py-2 text-bold" wire:click="modelBoxOnOff">
-                add Post
-            </div>
-        </div>
         <div class=" w-full flex flex-col container mx-auto">
             <div class="flex justify-center">
                 <div class="relative w-[85%] py-10 h-[400px] overflow-hidden">
@@ -58,7 +53,8 @@
                                 <img class=" rounded-full w-10 h-10 mr-3"
                                     src="https://imgs.search.brave.com/mvfoPoPUoRk0ZMyKGsbxyZ8OLvQQqArJlcYMTfK1pOg/rs:fit:500:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9iL2I5LzIw/MjNfRmFjZWJvb2tf/aWNvbi5zdmcvMjIw/cHgtMjAyM19GYWNl/Ym9va19pY29uLnN2/Zy5wbmc"
                                     alt="">
-                                <input type="text" class=" w-full rounded-full h-10 bg-gray-200 px-5"
+                                <input type="text" wire:click="modelBoxOnOff"
+                                    class=" w-full rounded-full h-10 bg-gray-200 px-5"
                                     placeholder="Apa yang Anda pikirkan, Sudana?">
                             </div>
                             <div class="w-full h-16 flex justify-between px-3 md:px-10 lg:px-24 xl:px-5">
@@ -180,12 +176,12 @@
 
         </div>
         @if($modelBox == 1 )
-        <div class="z-10 absolute w-full h-[900px]  top-[0%]  rounded-2xl p-6 flex justify-center pt-[10%]"
+        <div class="z-10 absolute w-[70%] h-[900px]  top-[0%]  rounded-2xl p-6 flex justify-center pt-[10%]"
             wire:click="off">
         </div>
 
         <div
-            class="w-[70%] 2xl:w-[40%] h-[400px] bg-gray-700   p-4 rounded-2xl z-20 absolute   top-[20%] 2xl:left-[30%] left-[15%]  bg-opacity-75">
+            class="w-[70%] 2xl:w-[40%]  bg-gray-700   p-4 rounded-2xl z-20 absolute   top-[20%] 2xl:left-[30%] left-[15%]  bg-opacity-75">
             @livewire('post.create-post',[
             'modelBox' => $modelBox])
         </div>

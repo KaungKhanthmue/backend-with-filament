@@ -1,6 +1,6 @@
 <div>
     <form wire:submit="create">
-        <div class="h-[100px]  rounded-xl py-4">
+        <div class="rounded-xl py-4">
             {{ $this->form }}
         </div>
         <div class="w-full flex justify-end ">
